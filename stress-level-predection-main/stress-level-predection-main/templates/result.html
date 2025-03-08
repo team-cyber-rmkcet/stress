@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- Link to Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
+    <script>
+        function openSpotifyAndReload(url) {
+            window.open(url, '_blank');  // Open Spotify link in a new tab
+            setTimeout(function() {
+                location.reload();  // Reload the page after 1 second
+            }, 1000);
+        }
+    </script>
+    <style>
+        /* Style for the tips & tricks section */
+.tips-container {
+    background-color: #f8f9fa;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+}
+
+/* Enhancing the button design */
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover effect */
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Active effect */
+button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+    </style>
+</head>
+<body>
+    <br><br><br><br><br><br><br><br><br><br>
+    <div class="container result-container">
+        <h2 align="center">Result</h2>
+        <div class="result-text">
+            Based on the inputs, the predicted Stress Level: <b>{{ stress_level }}</b>
+        </div>
+    </div>
+
+    <!-- Tips and Tricks Section -->
+    <div class="tips-container">
+        <p>🌿 Stress-Relief Tips & Tricks</p>
+        <p>{{ suggestions }}</p>
+    </div>
+
+    <!-- Centered button with effects -->
+    <button onclick="openSpotifyAndReload('{{ spotify_link }}')">🎵 Listen to Music</button>
+
+</body>
+</html>
