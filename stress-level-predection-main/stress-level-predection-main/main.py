@@ -39,7 +39,9 @@ feature_names = [
 
 user_input = []
 for name in feature_names:
-    user_input.append(st.number_input(f"{name} (0-10)", min_value=0.0, max_value=10.0, step=0.1))
+    user_input.append(st.number_input(f"{name} (0-10)", min_value=0.0, max_value=10.0, step=1.0, format="%.0f"))
+    
+
 
 # Stress Relief Suggestions using Gemini AI
 def get_gemini_suggestions(stress_level):
